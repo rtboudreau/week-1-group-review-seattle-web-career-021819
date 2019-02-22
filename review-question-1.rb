@@ -59,11 +59,34 @@ pokemon = [
   ]
 }
 ]
-
-
 # How would you get the url for Bulbasaur's ability?
-# How would you return the first pokemon with base experience over 40?
+# pokemon[0][:abilities][0][:ability][:url]
+
+# # How would you return the first pokemon with base experience over 40?
+pokemon.find do |hash|
+   hash[:base_experience] > 40
+end
+
 # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+pokemon.select do |hash|
+   hash[:base_experience] > 40
+end
+
 # How would you return an array of all of the pokemon's names?
+array = []
+pokemon.map do |name|
+ name[:name]
+end
+
 # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+
+array=[]
+pokemon.each do |hash|
+  if hash[:weight] > 60
+   array << hash[:weight]
+  end
+end
+
+!array.empty?
+
 #  whatever method you use should return true if there are any such pokemon, false if not.
